@@ -10,40 +10,54 @@
     <div class="container">
         <h1>Translate your thoughts</h1>
 
-        <div class="textarea-row">
-            <div class="textarea-column">
-                <label>Auto-Detect Language</label>
-                <textarea id="inputText" placeholder="Input here..."></textarea>
-            </div>
-            <div class="textarea-column">
-                <label>Translated Text</label>
-                <textarea id="outputText" placeholder="Output..." readonly></textarea>
-
-                <label for="targetLang">Target Language</label>
-                <select id="targetLang">
-                    <option value="fr">French</option>
-                    <option value="en">English</option>
-                    <option value="es">Spanish</option>
-                    <option value="de">German</option>
-                    <option value="ar">Arabic</option>
-                </select>
-
-                <div class="actions">
-                    <button onclick="copyText()">📋</button>
-                    <button onclick="speakText()">🔊</button>
+        <div class="translation-container">
+            <!-- Source Column -->
+            <div class="translation-column">
+                <div class="language-selector">
+                    <label for="sourceLang">From:</label>
+                    <select id="sourceLang" required>
+                        <option value="" disabled selected>Select language</option>
+                        <option value="fr">French</option>
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                        <option value="de">German</option>
+                        <option value="ar">Arabic</option>
+                    </select>
                 </div>
-
-                <button class="translateBtn" onclick="translateText()">Translate</button>
-                
+                <textarea id="inputText" placeholder="Enter text to translate..."></textarea>
             </div>
+
+            <!-- Target Column -->
+            <div class="translation-column">
+                <div class="language-selector">
+                    <label for="targetLang">To:</label>
+                    <select id="targetLang" required>
+                        <option value="" disabled selected>Select language</option>
+                        <option value="fr">French</option>
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                        <option value="de">German</option>
+                        <option value="ar">Arabic</option>
+                    </select>
+                    <div class="action-buttons">
+                        <button id="copyBtn" title="Copy text">📋</button>
+                        <button id="speakBtn" title="Speak text">🔊</button>
+                    </div>
+                </div>
+                <textarea id="outputText" placeholder="Translation will appear here..." readonly></textarea>
+            </div>
+        </div>
+
+        <div class="translate-button-container">
+            <button id="translateBtn">Translate</button>
         </div>
 
         <div class="footer">
             <span>♡</span>
             <span>♡</span>
         </div>
-
     </div>
+    <div id="alert"></div>
     <script src="script.js"></script>
 </body>
 </html>
